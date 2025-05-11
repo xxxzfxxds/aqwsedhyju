@@ -1,120 +1,118 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Выбор издания
-    const editionButtons = document.querySelectorAll('.select-edition');
+    // Элементы страницы
+    const collectorNotice = document.querySelector('.collector-notice');
     const editionSelect = document.getElementById('edition');
-    
-    // Создаем элемент для всплывающей картинки
-    const popupImage = document.createElement('div');
-    popupImage.className = 'popup-image';
-    popupImage.innerHTML = `
-        <div class="popup-content">
-            <button class="close-popup">&times;</button>
-            <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Коллекционное издание">
-            <p>Коллекционное издание включает эксклюзивную фигурку героя, артбук и другие ценные предметы!</p>
-        </div>
-    `;
-    document.body.appendChild(popupImage);
-    
+    const editionButtons = document.querySelectorAll('.select-edition');
+    const paymentMethods = document.querySelectorAll('.payment-method');
+    const submitBtn = document.getElementById('submitOrder');
+    const orderForm = document.querySelector('.order-form');
+
+    // Функция обновления видимости картинки
+    const updateCollectorNotice = (edition) => {
+        collectorNotice.style.display = edition === 'collector' ? 'block' : 'none';
+    };
+
+    // Обработчики для кнопок выбора издания
     editionButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const edition = this.getAttribute('data-edition');
+            const edition = this.dataset.edition;
             
-            // Удаляем активный класс со всех кнопок
+            // Обновляем выпадающий список
+            editionSelect.value = edition;
+            
+            // Обновляем стили кнопок
             editionButtons.forEach(btn => {
                 btn.textContent = 'Выбрать';
                 btn.style.backgroundColor = '';
             });
-            
-            // Добавляем активный класс к выбранной кнопке
             this.textContent = 'Выбрано ✓';
             this.style.backgroundColor = 'var(--primary)';
             
-            // Устанавливаем соответствующее значение в select
-            editionSelect.value = edition;
-            
-            // Показываем всплывающую картинку для коллекционного издания
-            if (edition === 'collector') {
-                popupImage.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+            // Обновляем картинку
+            updateCollectorNotice(edition);
+        });
+    });
+
+    // Обработчик для выпадающего списка
+    editionSelect.addEventListener('change', function() {
+        const edition = this.value;
+        
+        // Обновляем кнопки
+        editionButtons.forEach(btn => {
+            if (btn.dataset.edition === edition) {
+                btn.textContent = 'Выбрано ✓';
+                btn.style.backgroundColor = 'var(--primary)';
             } else {
-                document.body.style.overflow = ''; // Восстанавливаем прокрутку
+                btn.textContent = 'Выбрать';
+                btn.style.backgroundColor = '';
             }
         });
+        
+        // Обновляем картинку
+        updateCollectorNotice(edition);
     });
-    
-    // Закрытие всплывающей картинки
-    const closePopup = document.querySelector('.close-popup');
-    if (closePopup) {
-        closePopup.addEventListener('click', function() {
-            popupImage.style.display = 'none';
-            document.body.style.overflow = ''; // Восстанавливаем прокрутку
-        });
-    }
-    
-    // Закрытие при клике вне картинки
-    popupImage.addEventListener('click', function(e) {
-        if (e.target === this) {
-            popupImage.style.display = 'none';
-            document.body.style.overflow = ''; // Восстанавливаем прокрутку
-        }
-    });
-    
-    // Выбор способа оплаты
-    const paymentMethods = document.querySelectorAll('.payment-method');
-    
+
+    // Обработчики для способов оплаты
     paymentMethods.forEach(method => {
         method.addEventListener('click', function() {
-            // Удаляем активный класс со всех методов
-            paymentMethods.forEach(m => {
-                m.classList.remove('active');
-            });
-            
-            // Добавляем активный класс к выбранному методу
+            paymentMethods.forEach(m => m.classList.remove('active'));
             this.classList.add('active');
         });
     });
-    
-    // Обработка формы предзаказа
-    const orderForm = document.querySelector('.order-form');
-    const submitBtn = document.getElementById('submitOrder');
-    
-    if (submitBtn && orderForm) {
-        submitBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Простая валидация формы
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const terms = document.getElementById('terms').checked;
-            
-            if (!firstName || !lastName || !email || !terms) {
-                alert('Пожалуйста, заполните все обязательные поля и согласитесь с условиями.');
-                return;
+
+    // Обработчик отправки формы
+    submitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Валидация формы
+        const requiredFields = [
+            document.getElementById('firstName'),
+            document.getElementById('lastName'),
+            document.getElementById('email'),
+            document.getElementById('terms')
+        ];
+        
+        let isValid = true;
+        requiredFields.forEach(field => {
+            if (!field.value && field.type !== 'checkbox') {
+                isValid = false;
+                field.classList.add('error');
+            } else if (field.type === 'checkbox' && !field.checked) {
+                isValid = false;
+                field.parentElement.classList.add('error');
+            } else {
+                field.classList.remove('error');
             }
-            
-            // Здесь можно добавить AJAX-запрос для отправки данных на сервер
-            const edition = editionSelect.value;
-            const platform = document.getElementById('platform').value;
-            
-            // Формируем сообщение с выбранными параметрами
-            let message = `Спасибо за предзаказ!\n\n`;
-            message += `Имя: ${firstName} ${lastName}\n`;
-            message += `Email: ${email}\n`;
-            message += `Издание: ${editionSelect.options[editionSelect.selectedIndex].text}\n`;
-            message += `Платформа: ${document.getElementById('platform').options[document.getElementById('platform').selectedIndex].text}\n\n`;
-            message += `Мы отправили подтверждение на вашу электронную почту.`;
-            
-            alert(message);
-            
-            // Сброс формы (в реальном проекте этого может не быть)
-            orderForm.reset();
-            
-            // Сбрасываем выбор издания
-            editionButtons.forEach(btn => {
-                btn.textContent = 'Выбрать';
-                btn.style.backgroundColor = '';
-            });
         });
-    }
+        
+        if (!isValid) {
+            alert('Пожалуйста, заполните все обязательные поля и согласитесь с условиями.');
+            return;
+        }
+        
+        // Формирование данных
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            edition: editionSelect.options[editionSelect.selectedIndex].text,
+            platform: document.getElementById('platform').options[document.getElementById('platform').selectedIndex].text,
+            payment: document.querySelector('.payment-method.active').dataset.method
+        };
+        
+        // Имитация отправки
+        console.log('Отправленные данные:', formData);
+        alert(`Спасибо за предзаказ, ${formData.firstName}!\nПодробности отправлены на ${formData.email}`);
+        
+        // Сброс формы
+        orderForm.reset();
+        editionButtons.forEach(btn => {
+            btn.textContent = 'Выбрать';
+            btn.style.backgroundColor = '';
+        });
+        collectorNotice.style.display = 'none';
+    });
+
+    // Инициализация при загрузке
+    updateCollectorNotice(editionSelect.value);
 });
