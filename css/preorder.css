@@ -1,6 +1,13 @@
-/* Основные стили для страницы предзаказа */
+/* Основные стили страницы предзаказа */
 .preorder-section {
     padding: 8rem 0 5rem;
+}
+
+.preorder-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--light);
 }
 
 .editions {
@@ -84,6 +91,12 @@
     margin: 0 auto;
 }
 
+.form-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -118,6 +131,12 @@
     flex: 1;
 }
 
+.payment-title {
+    margin: 2rem 0 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 .payment-methods {
     display: flex;
     gap: 1rem;
@@ -142,6 +161,36 @@
     filter: none;
 }
 
+.collector-notice {
+    display: none;
+    text-align: center;
+    margin: 2rem 0;
+    animation: slideIn 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid var(--accent);
+}
+
+.collector-notice img {
+    width: 200px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.collector-notice p {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.terms {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 .submit-btn {
     width: 100%;
     padding: 1rem;
@@ -149,69 +198,22 @@
     margin-top: 1rem;
 }
 
-/* Стили для всплывающей картинки коллекционного издания */
-.popup-image {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s;
-}
-
-.popup-content {
-    background: var(--dark);
-    padding: 2rem;
-    border-radius: 15px;
-    max-width: 500px;
-    position: relative;
-    border: 2px solid var(--accent);
-    box-shadow: 0 0 30px rgba(255, 126, 95, 0.3);
-}
-
-.popup-content img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    max-height: 300px;
-    object-fit: cover;
-}
-
-.popup-content p {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--light);
-    margin-top: 1rem;
-}
-
-.close-popup {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.8rem;
-    color: var(--accent);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: none;
-    border: none;
-}
-
-.close-popup:hover {
-    color: white;
-    transform: scale(1.2);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
+    .preorder-title {
+        font-size: 2rem;
+    }
+    
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -225,8 +227,19 @@
         padding: 2rem 1.5rem;
     }
     
-    .popup-content {
-        width: 90%;
-        padding: 1.5rem;
+    .collector-notice img {
+        width: 150px;
+    }
+    
+    .collector-notice p {
+        font-size: 1rem;
+    }
+    
+    .payment-methods {
+        flex-wrap: wrap;
+    }
+    
+    .payment-method {
+        flex: 0 0 45%;
     }
 }
