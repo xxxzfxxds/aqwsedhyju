@@ -1,13 +1,13 @@
-[gd_scene load_steps=24 format=4 uid="uid://d1hp2uhgm0akv"]
+[gd_scene load_steps=24 format=4 uid="uid://c0yi6ax45rpup"]
 
 [ext_resource type="Texture2D" uid="uid://cmtidht72phm4" path="res://Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="1_w1mvj"]
 [ext_resource type="Texture2D" uid="uid://dnfiw6eh4t7yl" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Furniture.png" id="2_lxycn"]
 [ext_resource type="Texture2D" uid="uid://b0htjq8g3ootq" path="res://Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="3_vqw7c"]
 [ext_resource type="Texture2D" uid="uid://rd47kt5a73nm" path="res://Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="4_86xni"]
 [ext_resource type="Texture2D" uid="uid://btq2k5lk0rvg5" path="res://Sprout Lands - Sprites - Basic pack/Characters/Tools.png" id="5_qq0qw"]
-[ext_resource type="PackedScene" uid="uid://dtkipow6p3cjs" path="res://player.tscn" id="6_vqw7c"]
-[ext_resource type="Script" uid="uid://bq0cbinl6bkt5" path="res://area_2d2.gd" id="7_86xni"]
-[ext_resource type="Script" uid="uid://d0p6u8fkio06" path="res://sleep.gd" id="8_86xni"]
+[ext_resource type="PackedScene" uid="uid://c2qmqea8ge28x" path="res://player.tscn" id="6_vqw7c"]
+[ext_resource type="Script" path="res://area_2d2.gd" id="7_86xni"]
+[ext_resource type="Script" path="res://sleep.gd" id="8_86xni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6q8i"]
 texture = ExtResource("1_w1mvj")
@@ -448,6 +448,7 @@ text = "нажмите E чтобы поспать"
 label_settings = SubResource("LabelSettings_tdh31")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = -57.0
 offset_top = -23.0
 offset_right = 219.0
