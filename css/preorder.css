@@ -1,3 +1,4 @@
+/* Основные стили для страницы предзаказа */
 .preorder-section {
     padding: 8rem 0 5rem;
 }
@@ -148,6 +149,68 @@
     margin-top: 1rem;
 }
 
+/* Стили для всплывающей картинки коллекционного издания */
+.popup-image {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.popup-content {
+    background: var(--dark);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    position: relative;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 30px rgba(255, 126, 95, 0.3);
+}
+
+.popup-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.popup-content p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--light);
+    margin-top: 1rem;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+}
+
+.close-popup:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @media (max-width: 768px) {
     .form-row {
         flex-direction: column;
@@ -160,5 +223,10 @@
     
     .order-form {
         padding: 2rem 1.5rem;
+    }
+    
+    .popup-content {
+        width: 90%;
+        padding: 1.5rem;
     }
 }
