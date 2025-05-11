@@ -3,398 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Studio</title>
+    <title>Eternal Odyssey - Официальный сайт игры</title>
     <style>
-        /* CSS стили */
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff7e5f;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Google Sans', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: #f8f9fa;
-            color: #202124;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
         }
-
+        
         header {
-            background-color: white;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
-            z-index: 10;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 32px;
-            margin-right: 16px;
-        }
-
-        .logo h1 {
-            font-size: 20px;
-            font-weight: 500;
-            color: #5f6368;
-        }
-
-        nav {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            color: #5f6368;
-            text-decoration: none;
-            margin-left: 24px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-
-        nav a:hover {
-            color: #1a73e8;
-        }
-
-        nav a i {
-            margin-right: 8px;
-        }
-
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #1a73e8;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-left: 24px;
-            cursor: pointer;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            width: 280px;
-            background-color: white;
-            border-right: 1px solid #e0e0e0;
-            padding: 16px 0;
-            overflow-y: auto;
-        }
-
-        .project-selector {
-            padding: 0 24px 16px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .project-selector select {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 0;
+            position: fixed;
             width: 100%;
-            padding: 8px;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            background-color: white;
-            font-size: 14px;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
-        .nav-section {
-            padding: 8px 0;
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        .nav-section h3 {
-            font-size: 14px;
-            font-weight: 500;
-            color: #5f6368;
-            padding: 8px 24px;
-        }
-
-        .nav-item {
-            padding: 8px 24px 8px 56px;
+        
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            font-size: 14px;
         }
-
-        .nav-item:hover {
-            background-color: #f1f3f4;
-        }
-
-        .nav-item.active {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-        }
-
-        .nav-item i {
-            margin-right: 16px;
-            font-size: 18px;
-        }
-
-        .content {
-            flex: 1;
-            padding: 24px;
-            overflow-y: auto;
-        }
-
-        .content-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .content-header h2 {
-            font-size: 22px;
-            font-weight: 400;
-        }
-
-        .cta-button {
-            margin-left: auto;
-            background-color: #1a73e8;
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
             color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
             border: none;
-            padding: 8px 24px;
-            border-radius: 4px;
-            font-size: 14px;
             cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
+            text-align: center;
+            padding-top: 80px;
         }
-
-        .cta-button:hover {
-            background-color: #1765cc;
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .cta-button i {
-            margin-right: 8px;
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .card-grid {
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-            padding: 24px;
-            transition: box-shadow 0.2s;
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .card:hover {
-            box-shadow: 0 1px 3px 0 rgba(60,64,67,.302), 0 4px 8px 3px rgba(60,64,67,.149);
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-
-        .card h3 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 16px;
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
-
-        .card p {
-            font-size: 14px;
-            color: #5f6368;
-            margin-bottom: 16px;
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
-
-        .card-actions {
-            display: flex;
-            justify-content: flex-end;
+        
+        .screenshots {
+            background-color: rgba(0, 0, 0, 0.2);
         }
-
-        .card-actions button {
-            background: none;
-            border: none;
-            color: #1a73e8;
-            font-size: 14px;
-            cursor: pointer;
-            padding: 4px 8px;
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
-
-        .card-actions button:hover {
-            background-color: #e8f0fe;
-            border-radius: 4px;
+        
+        .screenshot {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
-
-        footer {
-            background-color: white;
-            padding: 16px 24px;
-            border-top: 1px solid #e0e0e0;
-            font-size: 12px;
-            color: #5f6368;
+        
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .trailer {
             text-align: center;
         }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: #0f0f1a;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links li {
+            margin: 0 0.5rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
     </style>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png" alt="Firebase">
-            <h1>Firebase Studio</h1>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Eternal Odyssey</a>
+                <ul class="nav-links">
+                    <li><a href="#about">Об игре</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <li><a href="#screenshots">Скриншоты</a></li>
+                    <li><a href="#trailer">Трейлер</a></li>
+                    <li><a href="#" class="btn">Предзаказ</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <a href="#"><i class="material-icons">help_outline</i> Помощь</a>
-            <a href="#"><i class="material-icons">feedback</i> Отправить отзыв</a>
-            <div class="user-avatar">U</div>
-        </nav>
     </header>
-
-    <main>
-        <div class="sidebar">
-            <div class="project-selector">
-                <select>
-                    <option>Мой Firebase проект</option>
-                    <option>Другой проект</option>
-                </select>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Откройте новый мир приключений</h1>
+                <p>Eternal Odyssey - это захватывающее RPG-приключение с открытым миром, где каждое решение меняет вашу историю. Отправляйтесь в путешествие, которое запомнится навсегда.</p>
+                <a href="#trailer" class="btn"><i class="fas fa-play"></i> Смотреть трейлер</a>
+                <a href="#" class="btn" style="background-color: transparent; border: 2px solid white;">Предзаказ</a>
             </div>
-
-            <div class="nav-section">
-                <h3>Разработка</h3>
-                <div class="nav-item active">
-                    <i class="material-icons">dashboard</i> Обзор
-                </div>
-                <div class="nav-item">
-                    <i class="material-icons">storage</i> База данных
-                </div>
-                <div class="nav-item">
-                    <i class="material-icons">lock</i> Аутентификация
-                </div>
-                <div class="nav-item">
-                    <i class="material-icons">cloud</i> Хостинг
-                </div>
-                <div class="nav-item">
-                    <i class="material-icons">functions</i> Функции
-                </div>
+        </div>
+    </section>
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Об игре</h2>
+            <div class="about-content">
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                    Eternal Odyssey переносит вас в фантастический мир Этерии, где древние пророчества переплетаются с судьбами героев. 
+                    Создайте своего уникального персонажа, исследуйте огромный открытый мир, вступайте в динамичные бои и принимайте решения, 
+                    которые повлияют на ход истории. Сражайтесь с могущественными врагами, находите редкие артефакты и раскройте тайны забытых цивилизаций.
+                </p>
             </div>
-
-            <div class="nav-section">
-                <h3>Мониторинг</h3>
-                <div class="nav-item">
-                    <i class="material-icons">insert_chart</i> Crashlytics
+        </div>
+    </section>
+    
+    <section id="features" class="section" style="background-color: rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <h2 class="section-title">Особенности</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Огромный открытый мир</h3>
+                    <p>Исследуйте разнообразные ландшафты Этерии - от густых лесов до заснеженных гор и древних руин.</p>
                 </div>
-                <div class="nav-item">
-                    <i class="material-icons">analytics</i> Google Analytics
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h3>Глубокое развитие персонажа</h3>
+                    <p>Создайте уникального героя с сотнями комбинаций навыков, способностей и снаряжения.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Неоднозначные решения</h3>
+                    <p>Ваш выбор влияет на мир и сюжет. Нет правильных или неправильных решений - только последствия.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Динамичные бои</h3>
+                    <p>Сражайтесь в реальном времени, используя комбинации атак, способностей и тактик.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Богатая история</h3>
+                    <p>Погрузитесь в глубокий лор с древними пророчествами, политическими интригами и запоминающимися персонажами.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Потрясающая графика</h3>
+                    <p>Наслаждайтесь визуальным великолепием с передовой графикой и атмосферным освещением.</p>
                 </div>
             </div>
         </div>
-
-        <div class="content">
-            <div class="content-header">
-                <h2>Обзор проекта</h2>
-                <button class="cta-button">
-                    <i class="material-icons">add</i> Добавить приложение
-                </button>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h3>База данных Realtime</h3>
-                    <p>Храните и синхронизируйте данные между пользователями в режиме реального времени.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
+    </section>
+    
+    <section id="screenshots" class="section screenshots">
+        <div class="container">
+            <h2 class="section-title">Скриншоты</h2>
+            <div class="screenshot-grid">
+                <div class="screenshot">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Игровой скриншот 1">
                 </div>
-
-                <div class="card">
-                    <h3>Аутентификация</h3>
-                    <p>Простая и безопасная аутентификация пользователей с поддержкой нескольких провайдеров.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
+                <div class="screenshot">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Игровой скриншот 2">
                 </div>
-
-                <div class="card">
-                    <h3>Облачные функции</h3>
-                    <p>Запускайте серверный код в ответ на события, инициированные Firebase и HTTPS-запросами.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
+                <div class="screenshot">
+                    <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Игровой скриншот 3">
                 </div>
-
-                <div class="card">
-                    <h3>Хостинг</h3>
-                    <p>Быстро и безопасно размещайте свои веб-приложения с глобальной CDN-сетью.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Cloud Storage</h3>
-                    <p>Надежно храните и обслуживайте пользовательский контент, такой как изображения и видео.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Crashlytics</h3>
-                    <p>Получайте подробные отчеты о сбоях в режиме реального времени, которые помогут вам отслеживать, расставлять приоритеты и устранять проблемы.</p>
-                    <div class="card-actions">
-                        <button>Перейти</button>
-                    </div>
+                <div class="screenshot">
+                    <img src="https://images.unsplash.com/photo-1545566238-3f9b553ab7e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Игровой скриншот 4">
                 </div>
             </div>
         </div>
-    </main>
-
+    </section>
+    
+    <section id="trailer" class="section trailer">
+        <div class="container">
+            <h2 class="section-title">Официальный трейлер</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Готовы к приключению?</h2>
+            <p>Оформите предзаказ сейчас и получите эксклюзивные бонусы при запуске игры!</p>
+            <a href="#" class="btn" style="background-color: var(--dark);">Предзаказ</a>
+        </div>
+    </section>
+    
     <footer>
-        <p>Firebase Console • Условия предоставления услуг • Политика конфиденциальности</p>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Условия использования</a></li>
+                <li><a href="#">Поддержка</a></li>
+                <li><a href="#">Карьера</a></li>
+            </ul>
+            
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-discord"></i></a></li>
+            </ul>
+            
+            <p class="copyright">© 2023 Eternal Odyssey. Все права защищены.</p>
+        </div>
     </footer>
-
-    <script>
-        // JavaScript функциональность
-        document.addEventListener('DOMContentLoaded', function() {
-            // Обработка кликов по навигационным элементам
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    navItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            // Обработка кликов по кнопкам карточек
-            const cardButtons = document.querySelectorAll('.card-actions button');
-            cardButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const cardTitle = this.closest('.card').querySelector('h3').textContent;
-                    alert(`Вы выбрали: ${cardTitle}`);
-                });
-            });
-
-            // Обработка кликов по карточкам
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const cardTitle = this.querySelector('h3').textContent;
-                    console.log(`Карточка "${cardTitle}" была нажата`);
-                });
-            });
-
-            // Обработка CTA кнопки
-            const ctaButton = document.querySelector('.cta-button');
-            ctaButton.addEventListener('click', function() {
-                alert('Добавить новое приложение');
-            });
-        });
-    </script>
 </body>
 </html>
