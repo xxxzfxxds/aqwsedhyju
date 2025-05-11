@@ -29,7 +29,7 @@
     
     <section class="preorder-section">
         <div class="container">
-            <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Оформите предзаказ</h1>
+            <h1 class="preorder-title">Оформите предзаказ</h1>
             
             <div class="editions">
                 <div class="edition-card">
@@ -41,7 +41,7 @@
                         <li>Цифровой саундтрек</li>
                         <li>Артбук (цифровой)</li>
                     </ul>
-                    <button class="btn select-edition" data-edition="standard" style="width: 100%;">Выбрать</button>
+                    <button class="btn select-edition" data-edition="standard">Выбрать</button>
                 </div>
                 
                 <div class="edition-card popular">
@@ -56,7 +56,7 @@
                         <li>3 эксклюзивных скина</li>
                         <li>Ранний доступ (48 часов)</li>
                     </ul>
-                    <button class="btn select-edition" data-edition="gold" style="width: 100%;">Выбрать</button>
+                    <button class="btn select-edition" data-edition="gold">Выбрать</button>
                 </div>
                 
                 <div class="edition-card">
@@ -71,12 +71,12 @@
                         <li>Эксклюзивный steelbook</li>
                         <li>Ранний доступ (72 часа)</li>
                     </ul>
-                    <button class="btn select-edition" data-edition="collector" style="width: 100%;">Выбрать</button>
+                    <button class="btn select-edition" data-edition="collector">Выбрать</button>
                 </div>
             </div>
             
             <div class="order-form">
-                <h2 style="text-align: center; margin-bottom: 2rem;">Форма заказа</h2>
+                <h2 class="form-title">Форма заказа</h2>
                 
                 <div class="form-row">
                     <div class="form-group">
@@ -98,7 +98,7 @@
                     <label for="edition">Выбранное издание</label>
                     <select id="edition" class="form-control">
                         <option value="standard">Стандартное издание ($49.99)</option>
-                        <option value="gold" selected>Золотое издание ($79.99)</option>
+                        <option value="gold">Золотое издание ($79.99)</option>
                         <option value="collector">Коллекционное издание ($129.99)</option>
                     </select>
                 </div>
@@ -113,7 +113,7 @@
                     </select>
                 </div>
                 
-                <h3 style="margin: 2rem 0 1rem;">Способ оплаты</h3>
+                <h3 class="payment-title">Способ оплаты</h3>
                 <div class="payment-methods">
                     <div class="payment-method active" data-method="paypal">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
@@ -129,9 +129,16 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
+                <div class="collector-notice">
+                    <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Коллекционное издание">
+                    <p>Вы выбрали эксклюзивное коллекционное издание с физическими бонусами!</p>
+                </div>
+
+                <div class="form-group terms">
                     <label>
-                        <input type="checkbox" id="terms" required> Я согласен с условиями предзаказа и политикой конфиденциальности
+                        <input type="checkbox" id="terms" required> 
+                        Я согласен с условиями предзаказа и политикой конфиденциальности
                     </label>
                 </div>
                 
