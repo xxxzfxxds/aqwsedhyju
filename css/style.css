@@ -4,8 +4,6 @@
     --dark: #1a1a2e;
     --light: #f8f9fa;
     --accent: #ff7e5f;
-    --dark-accent: #e06c4b;
-    --gray: #6c757d;
 }
 
 * {
@@ -19,16 +17,8 @@ body {
     background-color: var(--dark);
     color: var(--light);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Header styles */
 header {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     padding: 1rem 0;
@@ -36,7 +26,12 @@ header {
     width: 100%;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav {
@@ -50,11 +45,6 @@ nav {
     font-weight: 700;
     color: white;
     text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.logo:hover {
-    color: var(--accent);
 }
 
 .nav-links {
@@ -71,29 +61,12 @@ nav {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .nav-links a:hover {
     color: var(--accent);
 }
 
-.nav-links a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover:after {
-    width: 100%;
-}
-
-/* Button styles */
 .btn {
     display: inline-block;
     background-color: var(--accent);
@@ -110,32 +83,12 @@ nav {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color: var(--dark-accent);
 }
-
-.secondary-btn {
-    background-color: transparent;
-    border: 2px solid white;
-    margin-left: 1rem;
-}
-
-.secondary-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark-btn {
-    background-color: var(--dark);
-}
-
-.dark-btn:hover {
-    background-color: #0f0f1a;
-}
-
 
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), 
-                url('images/background.jpeg') no-repeat center center/cover;
+                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     display: flex;
     align-items: center;
     text-align: center;
@@ -145,7 +98,6 @@ nav {
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    animation: fadeIn 1s ease;
 }
 
 .hero h1 {
@@ -162,13 +114,6 @@ nav {
     opacity: 0.9;
 }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Sections */
 .section {
     padding: 5rem 0;
 }
@@ -178,20 +123,8 @@ nav {
     margin-bottom: 3rem;
     font-size: 2.5rem;
     color: white;
-    position: relative;
 }
 
-.section-title:after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    margin: 1rem auto 0;
-    border-radius: 2px;
-}
-
-/* Features section */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -205,13 +138,11 @@ nav {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent);
 }
 
 .feature-icon {
@@ -225,7 +156,6 @@ nav {
     margin-bottom: 1rem;
 }
 
-/* Screenshots section */
 .screenshots {
     background-color: rgba(0, 0, 0, 0.2);
 }
@@ -241,7 +171,6 @@ nav {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .screenshot:hover {
@@ -252,14 +181,8 @@ nav {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.5s ease;
 }
 
-.screenshot:hover img {
-    transform: scale(1.1);
-}
-
-/* Trailer section */
 .trailer {
     text-align: center;
 }
@@ -284,7 +207,6 @@ nav {
     border: none;
 }
 
-/* CTA section */
 .cta {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     text-align: center;
@@ -302,7 +224,6 @@ nav {
     font-size: 1.1rem;
 }
 
-/* Footer */
 footer {
     background-color: #0f0f1a;
     padding: 3rem 0 1.5rem;
@@ -314,7 +235,6 @@ footer {
     justify-content: center;
     list-style: none;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
 }
 
 .footer-links li {
@@ -365,58 +285,35 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Mobile menu */
-.burger {
+.menu-toggle {
     display: none;
     cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
 }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-/* Responsive styles */
 @media (max-width: 768px) {
     .nav-links {
-        position: absolute;
-        right: 0;
-        top: 80px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        width: 100%;
+        display: none;
         flex-direction: column;
-        align-items: center;
-        padding: 2rem 0;
-        clip-path: circle(0px at 90% -10%);
-        transition: all 0.5s ease-out;
-        pointer-events: none;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        padding: 1rem 0;
     }
     
     .nav-links.active {
-        clip-path: circle(1000px at 90% -10%);
-        pointer-events: all;
+        display: flex;
     }
     
     .nav-links li {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
+        text-align: center;
     }
     
-    .burger {
+    .menu-toggle {
         display: block;
     }
     
@@ -424,28 +321,7 @@ footer {
         font-size: 2.5rem;
     }
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .secondary-btn {
-        margin: 1rem 0 0 0;
-    }
-    
     .section-title {
         font-size: 2rem;
-    }
-    
-    .toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .toggle .line2 {
-        opacity: 0;
-    }
-    
-    .toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
     }
 }
