@@ -173,14 +173,8 @@
 .collector-notice img {
     width: 200px;
     border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-.collector-notice p {
-    color: var(--accent);
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin: 0;
+    margin-bottom: -45px;
+    position: relative;
 }
 
 .terms {
