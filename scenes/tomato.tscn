@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck0a0p211g0ad"]
+
+[ext_resource type="Texture2D" uid="uid://dpxburxv281w0" path="res://resources/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="2_h5g54"]
+[ext_resource type="Script" uid="uid://e66531l42al7" path="res://script/germination.gd" id="2_x54ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqbf8"]
+size = Vector2(15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x54ql"]
+atlas = ExtResource("2_h5g54")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldc2j"]
+atlas = ExtResource("2_h5g54")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsp4c"]
+atlas = ExtResource("2_h5g54")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55nrw"]
+atlas = ExtResource("2_h5g54")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joa5w"]
+atlas = ExtResource("2_h5g54")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsp4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x54ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldc2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsp4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55nrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joa5w")
+}],
+"loop": false,
+"name": &"tomato",
+"speed": 0.01
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_x54ql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.5, 7)
+shape = SubResource("RectangleShape2D_nqbf8")
+
+[node name="plant" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(8, 5)
+sprite_frames = SubResource("SpriteFrames_vsp4c")
+animation = &"0"
+speed_scale = 50.0
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
+[connection signal="animation_changed" from="Area2D/plant" to="Area2D" method="_on_plant_animation_changed"]
+[connection signal="animation_finished" from="Area2D/plant" to="Area2D" method="_on_plant_animation_finished"]
