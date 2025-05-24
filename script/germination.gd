@@ -9,7 +9,8 @@ func _on_body_entered(body: Node2D) -> void:
 			print('+tomato')
 			sprite.play('0')
 		else:
-			if Global.seedsTomat!=0:
-				Global.seedsTomat-=1
-				sprite.play('tomato')
+			if sprite.animation == '0': 
+				if Global.seedsTomat!=0:
+					Global.seedsTomat-=1
+					sprite.play('tomato')
 	pass # Replace with function body.

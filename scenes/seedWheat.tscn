@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkc5vbnxwt5ew"]
+
+[ext_resource type="Texture2D" uid="uid://dpxburxv281w0" path="res://resources/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="1_223tt"]
+[ext_resource type="Script" uid="uid://b65tfstraojt3" path="res://script/buyWheat.gd" id="1_mme3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb8ww"]
+size = Vector2(16, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_223tt"]
+atlas = ExtResource("1_223tt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p15r4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_223tt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_223tt"]
+font_size = 8
+font_color = Color(128.498, 1, 1, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_mme3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_yb8ww")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_p15r4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 4.0
+offset_bottom = -6.0
+text = "5 "
+label_settings = SubResource("LabelSettings_223tt")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

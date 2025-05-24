@@ -1,63 +1,69 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtkipow6p3cjs"]
+[gd_scene load_steps=36 format=3 uid="uid://dtkipow6p3cjs"]
 
-[ext_resource type="Texture2D" uid="uid://bql8mokt3q4gk" path="res://resources/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="2_2xort"]
-[ext_resource type="Texture2D" uid="uid://kj755pedyq26" path="res://resources/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="2_yccgb"]
-[ext_resource type="Script" uid="uid://ba1bqabu65dar" path="res://script/player.gd" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://ba1bqabu65dar" path="res://script/player.gd" id="1_od4tg"]
+[ext_resource type="Texture2D" uid="uid://bql8mokt3q4gk" path="res://resources/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="2_33hhw"]
+[ext_resource type="Texture2D" uid="uid://kj755pedyq26" path="res://resources/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="3_ukil2"]
+[ext_resource type="Script" uid="uid://k8jw5h2kov80" path="res://script/label.gd" id="4_5v8o7"]
+[ext_resource type="Texture2D" uid="uid://dpxburxv281w0" path="res://resources/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="5_jyo43"]
+[ext_resource type="Script" uid="uid://bohfl105sprgm" path="res://script/labelTomat.gd" id="6_br0p3"]
+[ext_resource type="Script" uid="uid://13ww4p6b2ffp" path="res://script/labelWheat.gd" id="7_d1crr"]
+[ext_resource type="Script" uid="uid://dke41bkis58u0" path="res://script/labelTomatSeed.gd" id="8_dpk1l"]
+[ext_resource type="Script" uid="uid://dobd1t07qj0o4" path="res://script/labelWheatSeed.gd" id="9_uc3ow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1told"]
-atlas = ExtResource("2_2xort")
+atlas = ExtResource("2_33hhw")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdkpn"]
-atlas = ExtResource("2_2xort")
+atlas = ExtResource("2_33hhw")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xft15"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4718f"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8cga"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5a3cx"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afwh1"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(0, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hysud"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(48, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a52bd"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ynfc"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lfc1"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(96, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkg3m"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(144, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_64yvq"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(96, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ryyl"]
-atlas = ExtResource("2_yccgb")
+atlas = ExtResource("3_ukil2")
 region = Rect2(144, 144, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_331ug"]
@@ -141,18 +147,155 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(14, 15)
+size = Vector2(14, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhqgy"]
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("5_jyo43")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+font_size = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("5_jyo43")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("5_jyo43")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("5_jyo43")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1ej7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("3_i3pqv")
+script = ExtResource("1_od4tg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_331ug")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 150.0
+offset_top = -106.0
+offset_right = 190.0
+offset_bottom = -83.0
+label_settings = SubResource("LabelSettings_qhqgy")
+horizontal_alignment = 2
+script = ExtResource("4_5v8o7")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -60.0
+offset_top = 77.0
+offset_right = 60.0
+offset_bottom = 104.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(14, 14)
+sprite_frames = SubResource("SpriteFrames_fjrip")
+
+[node name="Label" type="Label" parent="Panel/AnimatedSprite2D"]
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 17.0
+text = "0"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 2
+script = ExtResource("6_br0p3")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(42, 13)
+sprite_frames = SubResource("SpriteFrames_y4r1p")
+
+[node name="Label" type="Label" parent="Panel/AnimatedSprite2D2"]
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 17.0
+text = "0"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 2
+script = ExtResource("7_d1crr")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(71, 14)
+sprite_frames = SubResource("SpriteFrames_3v2ag")
+
+[node name="Label" type="Label" parent="Panel/AnimatedSprite2D3"]
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 17.0
+text = "0"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 2
+script = ExtResource("8_dpk1l")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(99, 14)
+sprite_frames = SubResource("SpriteFrames_f1ej7")
+
+[node name="Label" type="Label" parent="Panel/AnimatedSprite2D4"]
+offset_left = -12.0
+offset_top = 3.0
+offset_right = 12.0
+offset_bottom = 17.0
+text = "0"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 2
+script = ExtResource("9_uc3ow")

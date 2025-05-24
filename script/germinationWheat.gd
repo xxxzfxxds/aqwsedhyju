@@ -9,7 +9,8 @@ func _on_body_entered(body: Node2D) -> void:
 			print('+wheat')
 			sprite.play('0')
 		else:
-			if Global.seedsWheat!=0:
-				Global.seedsWheat-=1
-				sprite.play('wheat')
+			if sprite.animation == '0': 
+				if Global.seedsWheat!=0:
+					Global.seedsWheat-=1
+					sprite.play('wheat')
 	pass # Replace with function body.
