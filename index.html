@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eternal Harvest - Фермерский симулятор</title>
+    <title>Eternal Harvest - Симулятор растениеводства</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,10 +13,11 @@
             <nav>
                 <a href="#" class="logo">Eternal Harvest</a>
                 <ul class="nav-links">
-                    <li><a href="#about">Об игре</a></li>
-                    <li><a href="#features">Особенности</a></li>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="#plants">Виды культур</a></li>
+                    <li><a href="#mechanics">Игровая механика</a></li>
+                    <li><a href="#seasons">Сезоны</a></li>
                     <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#trailer">Трейлер</a></li>
                     <li><a href="preorder.html" class="btn">Предзаказ</a></li>
                 </ul>
                 <div class="menu-toggle">
@@ -29,8 +30,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Ваша идеальная ферма</h1>
-                <p>Eternal Harvest — уютный фермерский симулятор с глубокой системой выращивания культур и ухода за животными.</p>
+                <h1>Искусство совершенного растениеводства</h1>
+                <p>Погрузитесь в мир профессионального выращивания растений с самой детализированной системой сельского хозяйства в игровой индустрии</p>
                 <a href="#trailer" class="btn"><i class="fas fa-play"></i> Смотреть трейлер</a>
                 <a href="preorder.html" class="btn" style="background-color: transparent; border: 2px solid white;">Начать предзаказ</a>
             </div>
@@ -39,51 +40,153 @@
     
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Об игре</h2>
+            <h2 class="section-title">О проекте</h2>
             <div class="about-content">
-                <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
-                    Начните свою сельскохозяйственную историю в живописной долине. 
-                    Выращивайте редкие культуры, разводите животных, участвуйте в местных фестивалях 
-                    и создайте ферму своей мечты!
-                </p>
+                <p>Eternal Harvest переопределяет понятие фермерского симулятора, предлагая беспрецедентную глубину в выращивании растений. Это не просто игра - это виртуальная лаборатория растениеводства, где каждый лист, каждый плод и каждый корень подчиняются законам ботаники.</p>
+                
+                <div class="feature-boxes">
+                    <div class="feature-box">
+                        <i class="fas fa-leaf"></i>
+                        <h3>200+ видов растений</h3>
+                        <p>От классических злаков до экзотических гибридов</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-dna"></i>
+                        <h3>Генетика растений</h3>
+                        <p>Система скрещивания с наследованием характеристик</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-flask"></i>
+                        <h3>Научный подход</h3>
+                        <p>Реальные ботанические модели роста</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <section id="features" class="section" style="background-color: rgba(0, 0, 0, 0.1);">
+    <section id="plants" class="section" style="background-color: rgba(0, 0, 0, 0.1);">
         <div class="container">
-            <h2 class="section-title">Особенности</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tractor"></i>
+            <h2 class="section-title">Виды культур</h2>
+            <div class="plant-categories">
+                <div class="category">
+                    <h3><i class="fas fa-wheat"></i> Зерновые культуры</h3>
+                    <ul>
+                        <li>Пшеница (15 сортов)</li>
+                        <li>Рис (8 региональных вариаций)</li>
+                        <li>Кукуруза (гибриды с разным сроком созревания)</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3><i class="fas fa-carrot"></i> Овощи</h3>
+                    <ul>
+                        <li>Корнеплоды (морковь, свекла, редис)</li>
+                        <li>Пасленовые (томаты, баклажаны, перец)</li>
+                        <li>Бобовые (10 видов с уникальными свойствами)</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3><i class="fas fa-apple-alt"></i> Фрукты и ягоды</h3>
+                    <ul>
+                        <li>Семечковые (яблони, груши)</li>
+                        <li>Косточковые (персики, сливы)</li>
+                        <li>Ягодные кустарники (5 типов с разными условиями)</li>
+                    </ul>
+                </div>
+                <div class="category">
+                    <h3><i class="fas fa-spa"></i> Специальные культуры</h3>
+                    <ul>
+                        <li>Лекарственные растения (25 редких видов)</li>
+                        <li>Декоративные растения (для ландшафтного дизайна)</li>
+                        <li>Экспериментальные гибриды</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mechanics" class="section">
+        <div class="container">
+            <h2 class="section-title">Игровая механика</h2>
+            <div class="mechanics-grid">
+                <div class="mechanic-card">
+                    <div class="mechanic-icon">
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <h3>Реалистичное фермерство</h3>
-                    <p>Сезонные культуры, погодные условия и уникальные гибриды растений</p>
+                    <h3>Система роста</h3>
+                    <p>12 стадий развития растений с визуальными изменениями. Каждая культура имеет уникальные параметры:</p>
+                    <ul>
+                        <li>Скорость роста</li>
+                        <li>Устойчивость к болезням</li>
+                        <li>Требования к поливу</li>
+                        <li>Чувствительность к температуре</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cow"></i>
+                <div class="mechanic-card">
+                    <div class="mechanic-icon">
+                        <i class="fas fa-water"></i>
                     </div>
-                    <h3>Животноводство</h3>
-                    <p>Разводите коров, овец, кур и экзотических животных</p>
+                    <h3>Система полива</h3>
+                    <p>Реалистичное управление водными ресурсами:</p>
+                    <ul>
+                        <li>5 методов орошения</li>
+                        <li>Влияние на урожайность</li>
+                        <li>Автоматизированные системы</li>
+                        <li>Дождевая вода vs грунтовые воды</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-people-arrows"></i>
+                <div class="mechanic-card">
+                    <div class="mechanic-icon">
+                        <i class="fas fa-bug"></i>
                     </div>
-                    <h3>Социальная жизнь</h3>
-                    <p>Знакомьтесь с жителями, заводите друзей и создавайте семью</p>
+                    <h3>Болезни и вредители</h3>
+                    <p>Комплексная система угроз:</p>
+                    <ul>
+                        <li>35 видов болезней</li>
+                        <li>20 типов вредителей</li>
+                        <li>Экологические методы защиты</li>
+                        <li>Химические препараты с последствиями</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-warehouse"></i>
+                <div class="mechanic-card">
+                    <div class="mechanic-icon">
+                        <i class="fas fa-dna"></i>
                     </div>
-                    <h3>Производство</h3>
-                    <p>Перерабатывайте сырьё в готовую продукцию и продавайте с прибылью</p>
+                    <h3>Генетика и селекция</h3>
+                    <p>Продвинутая система выведения сортов:</p>
+                    <ul>
+                        <li>Скрещивание растений</li>
+                        <li>Наследование характеристик</li>
+                        <li>ГМО с рисками</li>
+                        <li>Экспериментальные гибриды</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seasons" class="section" style="background-color: rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <h2 class="section-title">Сезонная система</h2>
+            <div class="seasons-container">
+                <div class="season">
+                    <h3><i class="fas fa-snowflake"></i> Зима</h3>
+                    <p>Подготовка почвы, планирование посевов, уход за многолетниками</p>
+                </div>
+                <div class="season">
+                    <h3><i class="fas fa-leaf"></i> Весна</h3>
+                    <p>Посев ранних культур, борьба с заморозками, первые всходы</p>
+                </div>
+                <div class="season">
+                    <h3><i class="fas fa-sun"></i> Лето</h3>
+                    <p>Интенсивный уход, полив, защита от засухи и вредителей</p>
+                </div>
+                <div class="season">
+                    <h3><i class="fas fa-apple-alt"></i> Осень</h3>
+                    <p>Сбор урожая, подготовка к зиме, закладка на хранение</p>
                 </div>
             </div>
         </div>
@@ -94,13 +197,20 @@
             <h2 class="section-title">Галерея</h2>
             <div class="screenshot-grid">
                 <div class="screenshot">
-                    <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819" alt="Ферма">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Поля пшеницы">
+                    <p>Обширные поля зерновых культур</p>
                 </div>
                 <div class="screenshot">
-                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" alt="Поля">
+                    <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2" alt="Овощные грядки">
+                    <p>Аккуратные ряды овощных культур</p>
                 </div>
                 <div class="screenshot">
-                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329" alt="Животные">
+                    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655" alt="Фруктовый сад">
+                    <p>Фруктовые сады в период цветения</p>
+                </div>
+                <div class="screenshot">
+                    <img src="https://images.unsplash.com/photo-1551651658-3c8163b1b5c1" alt="Тепличный комплекс">
+                    <p>Современные тепличные комплексы</p>
                 </div>
             </div>
         </div>
@@ -117,8 +227,8 @@
     
     <section class="cta">
         <div class="container">
-            <h2>Готовы начать фермерскую жизнь?</h2>
-            <p>Оформите предзаказ и получите эксклюзивный набор фермерских инструментов!</p>
+            <h2>Готовы стать мастером растениеводства?</h2>
+            <p>Оформите предзаказ и получите эксклюзивный набор редких семян!</p>
             <a href="preorder.html" class="btn" style="background-color: var(--dark);">Предзаказ</a>
         </div>
     </section>
